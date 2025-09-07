@@ -11,12 +11,15 @@ nav {
 .custom-navbar {
     margin: 0 auto;
     height: 50px;
+    display: flex;
+    justify-content: right;
 }
 
 .menu {
     display: flex;
     gap: 24px;
     list-style: none;
-    justify-content: right;
     align-items: center;
+    height: 100%;
+    margin-right: 1rem;
 }
