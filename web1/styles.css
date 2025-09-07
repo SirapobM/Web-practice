@@ -8,12 +8,15 @@ nav {
     background-color: #333;
 }
 
-.navbar {
+.custom-navbar {
     margin: 0 auto;
-    max-width: 1140px;
-    justify-content: right;
+    height: 50px;
 }
 
 .menu {
     display: flex;
+    gap: 24px;
+    list-style: none;
+    justify-content: right;
+    align-items: center;
 }
