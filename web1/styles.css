@@ -35,6 +35,10 @@ nav {
   justify-content: center;
   cursor: pointer;
   height: 100%;      /* ให้สูงเท่า container */
+  
+  @media only screen and (min-width: 480px){
+    display: none;
+  }
 }
 
 .bar1, .bar2, .bar3 {
@@ -46,13 +50,13 @@ nav {
 }
 
 .change .bar1 {
-  transform: translate(0, 11px) rotate(-45deg);
+  transform: translate(0, 5px) rotate(-45deg);
 }
 
 .change .bar2 {opacity: 0;}
 
 .change .bar3 {
-  transform: translate(0, -11px) rotate(45deg);
+  transform: translate(0, -8px) rotate(45deg);
 }
 
 .menu, .logo {
@@ -86,4 +90,5 @@ main {
     .menu {
         display: none;
     }
+
 }
