@@ -1,0 +1,9 @@
+.title {
+    color: aqua;
+    font-size: 100px;
+    font-style: italic;
+}
+
+#title {
+    color: darkgoldenrod;
+}
