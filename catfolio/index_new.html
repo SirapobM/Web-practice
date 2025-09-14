@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catfolio — อูด้ง • ทาโกะ • ใบชา</title>
+  <meta name="description"
+    content="Catfolio โชว์แมวน่ารัก 3 ตัว: อูด้ง ทาโกะ ใบชา — โปรไฟล์, นิสัยเด่น, สถิติน่ารัก, เรื่องเล่าเพิ่มได้ และแกลเลอรีมาซอนรีพาสเทล พร้อมไลท์บ็อกซ์และตัวกรอง" />
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&family=Fredoka:wght@500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* Theme */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    :root {
+      --bg: #fff7fb;
+      --card: #ffffff;
+      --text: #3f3236;
+      --muted: #7b6a6e;
+      --pink: #ffd7e6;
+      --mint: #d9fff1;
+      --peach: #ffe7c4;
+      --lav: #eee6ff;
+      --yellow: #fff3b3;
+      --border: #ffd1e6;
+      --shadow: 0 10px 30px rgba(255, 150, 200, .18);
+      --r: 22px;
+      --udon: #f1e3c2;
+      /* ครีม */
+      --tako: #ffd2ae;
+      /* ส้มพีช */
+      --baicha: #c9f8e5;
+      /* ชาเขียวมินต์ */
+    }
+
+    body {
+      font-family: "Fredoka", "Kanit", system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans Thai", sans-serif;
+      background:
+        radial-gradient(800px 400px at -10% 0%, rgba(255, 215, 230, .45), transparent 60%),
+        radial-gradient(900px 500px at 110% 0%, rgba(217, 255, 241, .45), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.75
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin-inline: auto
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, .7);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px dashed var(--border)
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .9rem 0
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .6rem
+    }
+
+    .logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: conic-gradient(from 120deg, var(--pink), var(--mint), var(--peach), var(--lav));
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .06)
+    }
+
+    .menu {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap
+    }
+
+    .menu a {
+      padding: .45rem .8rem;
+      border-radius: 999px;
+      border: 2px dashed var(--border);
+      background: #fff
+    }
+
+    /* Hero */
+    .hero {
+      position: relative
+    }
+
+    .cover {
+      aspect-ratio: 16/7;
+      background: linear-gradient(180deg, rgba(255, 215, 230, .45), transparent 60%), url('Mai.webp') center/cover no-repeat;
+      border-bottom: 2px dashed var(--border)
+    }
+
+    .hero-inner {
+      display: grid;
+      gap: .6rem;
+      justify-items: center;
+      padding: 1.2rem 1rem
+    }
+
+    .title {
+      font-size: clamp(1.8rem, 2.4vw+1.2rem, 3rem);
+      margin: .2rem 0 0;
+      text-align: center
+    }
+
+    .subtitle {
+      color: var(--muted);
+      text-align: center
+    }
+
+    .tags {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      justify-content: center
+    }
+
+    .tag {
+      padding: .35rem .8rem;
+      border-radius: 999px;
+      border: 2px dashed var(--border);
+      background: #fff
+    }
+
+    /* Section */
+    .section {
+      padding: 1.8rem 0
+    }
+
+    .section h2 {
+      margin: 0 0 1rem;
+      text-align: center;
+      font-size: clamp(1.3rem, 1.2vw+1rem, 2rem)
+    }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem
+    }
+
+    .card {
+      background: var(--card);
+      border: 2px dashed var(--border);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      padding: 1rem;
+      text-align: center;
+      position: relative
+    }
+
+    .badge {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      background: var(--yellow);
+      border: 2px dashed var(--border);
+      padding: .2rem .6rem;
+      border-radius: 999px;
+      font-size: .8rem
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 0 auto .7rem;
+      border: 6px solid #ffe3ee;
+      box-shadow: 0 6px 18px rgba(255, 172, 197, .35)
+    }
+
+    .name {
+      font-size: 1.2rem;
+      margin: .4rem 0 .2rem
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: .95rem
+    }
+
+    .chips {
+      display: flex;
+      gap: .35rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: .5rem
+    }
+
+    .chip {
+      padding: .25rem .6rem;
+      border-radius: 999px;
+      background: #fff;
+      border: 2px dashed var(--border);
+      font-size: .9rem
+    }
+
+    /* Per-cat color accents */
+    .card.udon {
+      background: linear-gradient(180deg, rgba(241, 227, 194, .35), transparent 60%), var(--card)
+    }
+
+    .card.udon .chip,
+    .tile[data-cat="udon"],
+    .filter[data-filter="udon"] {
+      border-color: var(--udon)
+    }
+
+    .card.udon .badge {
+      background: var(--udon)
+    }
+
+    .card.tako {
+      background: linear-gradient(180deg, rgba(255, 210, 174, .35), transparent 60%), var(--card)
+    }
+
+    .card.tako .chip,
+    .tile[data-cat="tako"],
+    .filter[data-filter="tako"] {
+      border-color: var(--tako)
+    }
+
+    .card.tako .badge {
+      background: var(--tako)
+    }
+
+    .card.baicha {
+      background: linear-gradient(180deg, rgba(201, 248, 229, .35), transparent 60%), var(--card)
+    }
+
+    .card.baicha .chip,
+    .tile[data-cat="baicha"],
+    .filter[data-filter="baicha"] {
+      border-color: var(--baicha)
+    }
+
+    .card.baicha .badge {
+      background: var(--baicha)
+    }
+
+    /* Quick Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .6rem;
+      margin-top: .8rem
+    }
+
+    .stat {
+      background: #fff;
+      border: 2px dashed var(--border);
+      border-radius: 14px;
+      padding: .55rem .6rem;
+      font-size: .9rem
+    }
+
+    /* Story */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      max-width: 900px;
+      margin: 0 auto
+    }
+
+    .bubble {
+      background: #fff;
+      border: 2px dashed var(--border);
+      border-radius: 18px;
+      padding: 1rem
+    }
+
+    .story-form {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: .6rem;
+      align-items: start;
+      margin-bottom: .8rem
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 70px;
+      padding: .6rem;
+      border: 2px dashed var(--border);
+      border-radius: 12px;
+      font-family: inherit
+    }
+
+    .add-btn {
+      padding: .6rem .9rem;
+      border-radius: 12px;
+      border: 2px dashed var(--border);
+      background: #fff;
+      cursor: pointer;
+      height: fit-content
+    }
+
+    .tips {
+      color: var(--muted);
+      text-align: center;
+      font-size: .9rem;
+      margin-top: .4rem
+    }
+
+    /* Gallery + Filters */
+    .filters {
+      display: flex;
+      gap: .5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: .8rem
+    }
+
+    .filter {
+      padding: .4rem .8rem;
+      border-radius: 999px;
+      border: 2px dashed var(--border);
+      background: #fff;
+      cursor: pointer
+    }
+
+    .filter.active {
+      box-shadow: 0 0 0 6px rgba(255, 150, 200, .18)
+    }
+
+    .masonry {
+      column-count: 1;
+      column-gap: .8rem;
+      max-width: 1000px;
+      margin: 0 auto
+    }
+
+    @media (min-width:560px) {
+      .masonry {
+        column-count: 2
+      }
+    }
+
+    @media (min-width:980px) {
+      .masonry {
+        column-count: 3
+      }
+    }
+
+    .tile {
+      break-inside: avoid;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px dashed var(--border);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+      margin: 0 0 .8rem;
+      position: relative
+    }
+
+    .tile a.dl {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      background: #fff;
+      border: 2px dashed var(--border);
+      border-radius: 999px;
+      padding: .3rem .6rem;
+      font-size: .85rem
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, .6);
+      z-index: 50;
+      padding: 1rem
+    }
+
+    .lightbox.open {
+      display: flex
+    }
+
+    .lightbox img {
+      max-height: 86vh;
+      width: auto;
+      border-radius: 18px;
+      border: 6px solid #fff;
+      box-shadow: 0 20px 60px rgba(255, 150, 200, .5)
+    }
+
+    .close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: #fff;
+      border: 2px dashed var(--border);
+      border-radius: 999px;
+      padding: .5rem .7rem;
+      cursor: pointer
+    }
+
+    /* Footer */
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      text-align: center
+    }
+
+    /* Cute paws */
+    .paws {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: .18
+    }
+
+    .paws::before,
+    .paws::after {
+      content: "🐾";
+      position: absolute;
+      font-size: 64px;
+      animation: float 12s ease-in-out infinite
+    }
+
+    .paws::before {
+      left: 6%;
+      top: 18%
+    }
+
+    .paws::after {
+      right: 8%;
+      bottom: 12%;
+      animation-delay: -6s
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-10px)
+      }
+    }
+
+    /* Back to top */
+    #topBtn {
+      position: fixed;
+      right: 12px;
+      bottom: 14px;
+      background: #fff;
+      border: 2px dashed var(--border);
+      border-radius: 999px;
+      padding: .55rem .8rem;
+      box-shadow: var(--shadow);
+      cursor: pointer
+    }
+  </style>
+</head>
+
+<body>
+  <div class="paws" aria-hidden="true"></div>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div><b>Catfolio</b>
+        </div>
+        <div class="menu">
+          <a href="#cats">สมาชิก</a>
+          <a href="#story">เรื่องเล่า</a>
+          <a href="#gallery">แกลเลอรี</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="cover" role="img" aria-label="ภาพปกน้องแมวนอนสบาย"></div>
+    <div class="hero-inner container">
+      <h1 class="title">อูด้ง • ทาโกะ • ใบชา</h1>
+      <p class="subtitle">สามสหายขนฟู โทนพาสเทล ดูเพลิน แชร์ให้เพื่อนได้ทันที ♡</p>
+      <div class="tags">
+        <span class="tag">#CuteCats</span>
+        <span class="tag">#UdonTakoBaicha</span>
+        <span class="tag">#Family</span>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- Members with per-cat colors -->
+    <section id="cats" class="section container">
+      <h2>สมาชิกแมว</h2>
+      <div class="cards">
+        <article class="card udon" data-cat="udon">
+          <span class="badge">พี่ใหญ่</span>
+          <div class="avatar">
+            <img src="udon.jpg" alt="อูด้ง" style="width:100%;height:100%;object-fit:cover;object-position:50% 42%;" />
+          </div>
+
+          <div class="name">อูด้ง (Udon)</div>
+          <div class="meta">สุภาพ • ชอบนอนแดด</div>
+          <div class="chips"><span class="chip">ใจเย็น</span><span class="chip">ผู้ดีมีมารยาท</span><span
+              class="chip">ริมหน้าต่าง</span></div>
+          <div class="stats">
+            <div class="stat">❤ ชอบกอด: มาก</div>
+            <div class="stat">☀ จุดโปรด: หน้าต่าง</div>
+            <div class="stat">😺 ระดับอ้อน: 8/10</div>
+          </div>
+        </article>
+        <article class="card tako" data-cat="tako">
+          <span class="badge">สายลุย</span>
+          <div class="avatar">
+            <img src="tako.jpg" alt="ทาโกะ" style="width:100%;height:100%;object-fit:cover;object-position:50% 40%;" />
+          </div>
+
+          <div class="name">ทาโกะ (Tako)</div>
+          <div class="meta">ปีนเก่ง • ตาใสแจ๋ว</div>
+          <div class="chips"><span class="chip">พลังงานล้น</span><span class="chip">นักสำรวจ</span><span
+              class="chip">ตกปลา</span></div>
+          <div class="stats">
+            <div class="stat">🏃 วิ่งเล่น: ทุกเย็น</div>
+            <div class="stat">🎯 ของโปรด: ไม้ตกปลา</div>
+            <div class="stat">⚡ ซนระดับ: 9/10</div>
+          </div>
+        </article>
+        <article class="card baicha" data-cat="baicha">
+          <span class="badge">น้องเล็ก</span>
+          <div class="avatar">
+            <img src="baicha.jpg" alt="ใบชา" style="width:100%;height:100%;object-fit:cover;object-position:50% 48%;" />
+          </div>
+
+          <div class="meta">ชอบกอด • งีบเก่ง</div>
+          <div class="chips"><span class="chip">โชว์พุงเก่ง</span><span class="chip">ไว้ใจสุด ๆ</span><span
+              class="chip">purr ดัง</span></div>
+          <div class="stats">
+            <div class="stat">💤 งีบยาว: สาย–บ่าย</div>
+            <div class="stat">🤍 โหมด: โซฟต์</div>
+            <div class="stat">😽 ระดับอ้อน: 10/10</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Story with Add (keep last 3) -->
+    <section id="story" class="section container">
+      <h2>เรื่องเล่าความน่ารัก</h2>
+      <form class="story-form" id="storyForm">
+        <textarea id="storyInput" placeholder="พิมพ์เรื่องเล่าใหม่ เช่น วันนี้ใบชานอนกอดมือทั้งวัน…"></textarea>
+        <button class="add-btn" type="submit">เพิ่มเรื่องเล่า</button>
+      </form>
+      <div class="story-grid" id="storyGrid"></div>
+      <div class="tips">* เว็บจะเก็บแค่ <b>3 เรื่องล่าสุด</b> เรื่องใหม่จะดันเรื่องเก่าหลุดอัตโนมัติ
+        (บันทึกในเบราว์เซอร์ของคุณ)</div>
+    </section>
+
+    <!-- Gallery Masonry + Filters + Lightbox -->
+    <section id="gallery" class="section container">
+      <h2>แกลเลอรี</h2>
+      <div class="filters" role="tablist" aria-label="กรองรูปภาพ">
+        <button class="filter active" data-filter="all" role="tab" aria-selected="true">ทั้งหมด</button>
+        <button class="filter" data-filter="udon" role="tab">อูด้ง</button>
+        <button class="filter" data-filter="tako" role="tab">ทาโกะ</button>
+        <button class="filter" data-filter="baicha" role="tab">ใบชา</button>
+      </div>
+      <div class="masonry" id="grid">
+        <figure class="tile" data-cat="baicha"><img src="Mai.webp" alt="ใบชางีบโชว์พุง" /><a class="dl" href="Mai.webp"
+            download>ดาวน์โหลด</a></figure>
+        <figure class="tile" data-cat="udon"><img src="https://placehold.co/800x900/jpg?text=Udon+Sun"
+            alt="อูด้งอาบแดด" /><a class="dl" href="https://placehold.co/1600x1800/jpg?text=Udon+Sun"
+            download>ดาวน์โหลด</a></figure>
+        <figure class="tile" data-cat="tako"><img src="https://placehold.co/800x600/jpg?text=Tako+Run"
+            alt="ทาโกะวิ่งเล่น" /><a class="dl" href="https://placehold.co/1600x1200/jpg?text=Tako+Run"
+            download>ดาวน์โหลด</a></figure>
+        <figure class="tile" data-cat="udon"><img src="https://placehold.co/800x700/jpg?text=Udon+Pose"
+            alt="อูด้งโพสท์" /><a class="dl" href="https://placehold.co/1600x1400/jpg?text=Udon+Pose"
+            download>ดาวน์โหลด</a></figure>
+        <figure class="tile" data-cat="tako"><img src="https://placehold.co/800x650/jpg?text=Tako+Toy"
+            alt="ทาโกะของเล่น" /><a class="dl" href="https://placehold.co/1600x1300/jpg?text=Tako+Toy"
+            download>ดาวน์โหลด</a></figure>
+        <figure class="tile" data-cat="baicha"><img src="https://placehold.co/800x650/jpg?text=Baicha+Nap"
+            alt="ใบชางีบ" /><a class="dl" href="https://placehold.co/1600x1300/jpg?text=Baicha+Nap"
+            download>ดาวน์โหลด</a></figure>
+      </div>
+      <div class="lightbox" id="lightbox" aria-modal="true" role="dialog" aria-label="แสดงรูปขนาดใหญ่">
+        <button class="close" id="lightboxClose" aria-label="ปิดรูป">✕</button>
+        <img id="lightboxImg" alt="ตัวอย่างรูปแมว" />
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Udon • Tako • Baicha — Catfolio ♡ · <a id="copy"
+        href="#">คัดลอกลิงก์หน้านี้</a></div>
+  </footer>
+
+  <button id="topBtn" aria-label="กลับขึ้นด้านบน">⬆</button>
+
+  <script>
+    // footer year + share
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('copy').addEventListener('click', function (e) { e.preventDefault(); navigator.clipboard?.writeText(location.href) });
+
+    // back to top
+    document.getElementById('topBtn').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // lightbox
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    document.getElementById('grid').addEventListener('click', e => {
+      const img = e.target.closest('img');
+      if (!img) return;
+      lbImg.src = img.src; lb.classList.add('open');
+    });
+    document.getElementById('lightboxClose').addEventListener('click', () => lb.classList.remove('open'));
+    lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+
+    // filters
+    const filters = [...document.querySelectorAll('.filter')];
+    const tiles = [...document.querySelectorAll('.tile')];
+    const setFilter = (key) => {
+      filters.forEach(f => f.classList.toggle('active', f.dataset.filter === key || key === 'all' && f.dataset.filter === 'all'));
+      tiles.forEach(t => { t.style.display = key === 'all' || t.dataset.cat === key ? 'inline-block' : 'none' });
+    };
+    filters.forEach(f => f.addEventListener('click', () => setFilter(f.dataset.filter)));
+
+    // STORY: keep only last 3 (with localStorage)
+    const GRID = document.getElementById('storyGrid');
+    const FORM = document.getElementById('storyForm');
+    const INPUT = document.getElementById('storyInput');
+    const STORAGE_KEY = 'catfolio_stories_v1';
+    const MAX_STORIES = 3; // เปลี่ยนจำนวนได้ทีหลัง
+
+    const defaultStories = [
+      '<b>อูด้ง:</b> ชอบนอนรับแดดตอนเช้า ๆ ตำแหน่งโปรดคือขอบหน้าต่าง ขี้อ้อนแต่สุภาพ 🥺',
+      '<b>ทาโกะ:</b> นักกีฬาประจำบ้าน วิ่งตรวจตราทุกห้อง ได้ยินปลอกคอกรุ๊งกริ๊งเมื่อไร แปลว่าได้เวลาเล่น!',
+      '<b>ใบชา:</b> โหมดโซฟต์สุด ๆ ชอบนอนหงายโชว์พุง แปลว่าไว้ใจและสบายใจสุด ๆ 💤'
+    ];
+
+    function loadStories() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return defaultStories.slice();
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) && parsed.length ? parsed : defaultStories.slice();
+      } catch (e) {
+        return defaultStories.slice();
+      }
+    }
+    function trySaveStories(list) {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); return true; }
+      catch (e) { console.warn('Cannot save to localStorage:', e); return false; }
+    }
+
+    function renderStories(list) {
+      const stories = (list || loadStories()).slice(-MAX_STORIES).reverse();
+      GRID.innerHTML = stories.map(s => `<div class="bubble">${s}</div>`).join('');
+    }
+
+    FORM.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const text = INPUT.value.trim();
+      if (!text) return;
+      const list = loadStories();
+      const safe = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      list.push(safe);
+      const trimmed = list.slice(-MAX_STORIES);
+      // พยายามบันทึก แต่ถ้าบันทึกไม่ได้ก็ยังแสดงผลให้เห็นทันที
+      const saved = trySaveStories(trimmed);
+      INPUT.value = '';
+      renderStories(saved ? undefined : trimmed);
+      // โฟกัสให้เห็นผลทันที
+      GRID.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // init
+    renderStories();
+  </script>
+</body>
+
+</html>
