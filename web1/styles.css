@@ -1,11 +1,12 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    --nav-font : white;
+  --nav-background: #3971b8;
+  --nav-font: white;
 }
 
 .rubik-font {
@@ -17,15 +18,15 @@
 
 /* ---------------- Start Nav ---------------- */
 nav {
-    background-color: #333;
+  background-color: var(--nav-background);
 }
 
 .container {
-    margin: 0 auto;
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    max-width: 1170px;
+  margin: 0 auto;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1170px;
 }
 
 .menuIcon {
@@ -34,14 +35,16 @@ nav {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  height: 100%;      /* ให้สูงเท่า container */
-  
-  @media only screen and (min-width: 480px){
+  height: 100%; /* ให้สูงเท่า container */
+
+  @media only screen and (min-width: 480px) {
     display: none;
   }
 }
 
-.bar1, .bar2, .bar3 {
+.bar1,
+.bar2,
+.bar3 {
   width: 20px;
   height: 3px;
   background-color: var(--nav-font);
@@ -53,42 +56,53 @@ nav {
   transform: translate(0, 5px) rotate(-45deg);
 }
 
-.change .bar2 {opacity: 0;}
+.change .bar2 {
+  opacity: 0;
+}
 
 .change .bar3 {
   transform: translate(0, -8px) rotate(45deg);
 }
 
-.menu, .logo {
-    display: flex;
-    gap: 24px;
-    list-style: none;
-    align-items: center;
-    height: 100%;
+.menu,
+.logo {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  align-items: center;
+  height: 100%;
 }
 
 .logo {
-    color: var(--nav-font);
-    font-size: 15px;
+  color: var(--nav-font);
+  font-size: 15px;
 }
 
 .menu li a {
-    color: var(--nav-font);
-    text-decoration: none;
-    font-size: 15px;
+  color: var(--nav-font);
+  text-decoration: none;
+  font-size: 15px;
 }
 
 /* ---------------- End Nav ---------------- */
-
-main {
-    padding: 50px;
+.container-main{
+  background-color: #cfcfcf;
 }
 
+.profile {
+  height: 300px;
+  width: 100%;
+}
+
+.profile img{
+  height: 100%;
+  padding: 10px;
+  margin: 0 auto;
+}
 
 /* ---------------- Media ---------------- */
-@media only screen and (max-width : 480px) {
-    .menu {
-        display: none;
-    }
-
+@media only screen and (max-width: 480px) {
+  .menu {
+    display: none;
+  }
 }
