@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Portfolio — Starter Template</title>
+  <meta name="description" content="Simple, modern, responsive portfolio template (HTML/CSS/JS)." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0c10;          /* default dark theme */
+      --card:#12141a;
+      --muted:#9aa3b2;
+      --text:#e6e9ee;
+      --brand:#5eead4;       /* teal */
+      --brand-2:#8b5cf6;     /* violet */
+      --ring: 0 0 0 3px color-mix(in srgb, var(--brand) 35%, transparent);
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --grid-gap: 1.25rem;
+      --maxw: 1100px;
+    }
+    /* Light mode palette */
+    :root.light{
+      --bg:#f7f8fb;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --text:#0f172a;
+      --brand:#14b8a6;
+      --brand-2:#7c3aed;
+      --shadow: 0 10px 30px rgba(2,8,20,.06);
+    }
+    @media (prefers-color-scheme: light){
+      :root:not(.dark){
+        --bg:#f7f8fb;--card:#ffffff;--muted:#6b7280;--text:#0f172a;--brand:#14b8a6;--brand-2:#7c3aed;--shadow:0 10px 30px rgba(2,8,20,.06);
+      }
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto;letter-spacing:.1px;background:radial-gradient(60rem 40rem at 80% -10%, color-mix(in srgb, var(--brand) 16%, transparent), transparent 60%),
+      radial-gradient(40rem 30rem at -10% 10%, color-mix(in srgb, var(--brand-2) 16%, transparent), transparent 60%), var(--bg);color:var(--text)}
+
+    /* Layout */
+    .wrap{max-width:var(--maxw);margin-inline:auto;padding:0 1.25rem}
+    header{position:sticky;top:0;z-index:50;background:linear-gradient(to bottom, color-mix(in srgb, var(--bg) 85%, transparent), transparent)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+    .nav a.logo{font-weight:800;letter-spacing:.3px;text-decoration:none;color:var(--text)}
+    .links{display:flex;gap:.75rem;align-items:center}
+    .links a{padding:.55rem .85rem;border-radius:999px;text-decoration:none;color:var(--text);opacity:.85}
+    .links a:hover{opacity:1;background:color-mix(in srgb, var(--text) 8%, transparent)}
+    .btn{display:inline-flex;gap:.5rem;align-items:center;padding:.72rem 1rem;border-radius:12px;background:linear-gradient(135deg, var(--brand), var(--brand-2));border:0;color:#0b0c10;font-weight:700;box-shadow:var(--shadow);text-decoration:none}
+    .btn:hover{filter:saturate(1.1) brightness(1.02)}
+    .ghost{background:transparent;color:var(--text);border:1px solid color-mix(in srgb, var(--text) 18%, transparent)}
+
+    /* Hero */
+    .hero{padding:4rem 0 2rem;display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center}
+    .badge{display:inline-flex;gap:.5rem;align-items:center;padding:.35rem .6rem;border-radius:999px;background:color-mix(in srgb, var(--text) 10%, transparent);color:var(--text);font-size:.85rem;opacity:.95}
+    .title{font-size:clamp(2rem, 3.2vw + 1rem, 3.6rem);line-height:1.05;margin:.75rem 0}
+    .subtitle{font-size:1.1rem;color:var(--muted);max-width:56ch}
+    .cta{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.2rem}
+    .socials{display:flex;gap:.6rem;margin-top:1.3rem}
+    .card{background:var(--card);border:1px solid color-mix(in srgb, var(--text) 8%, transparent);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .avatar{aspect-ratio:1/1;border-radius:var(--radius);background:linear-gradient(135deg, color-mix(in srgb, var(--brand) 40%, transparent), color-mix(in srgb, var(--brand-2) 40%, transparent));display:grid;place-items:center;font-size:3rem;color:white;}
+
+    /* Sections */
+    section{padding:3.2rem 0}
+    .sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem}
+    .sec-head h2{margin:0;font-size:1.6rem}
+    .grid{display:grid;gap:var(--grid-gap)}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+
+    /* About */
+    .about p{color:var(--muted)}
+    .list{display:grid;gap:.5rem;margin:0;padding:0}
+    .list li{list-style:none;color:var(--muted)}
+
+    /* Skills */
+    .tags{display:flex;gap:.5rem;flex-wrap:wrap}
+    .tag{border:1px solid color-mix(in srgb, var(--text) 12%, transparent);color:var(--text);padding:.4rem .6rem;border-radius:999px;font-size:.9rem;background:color-mix(in srgb, var(--text) 6%, transparent)}
+
+    /* Projects */
+    .project{overflow:hidden;display:flex;flex-direction:column}
+    .thumb{aspect-ratio:16/10;background:
+      linear-gradient(135deg, color-mix(in srgb, var(--brand) 25%, transparent), color-mix(in srgb, var(--brand-2) 25%, transparent));
+      border-bottom:1px solid color-mix(in srgb, var(--text) 10%, transparent)}
+    .project .body{padding:1rem}
+    .project h3{margin:.2rem 0 .4rem;font-size:1.1rem}
+    .project p{margin:0;color:var(--muted)}
+    .actions{display:flex;gap:.6rem;margin-top:.9rem}
+
+    /* Experience (Timeline) */
+    .timeline{position:relative;display:grid;gap:1rem}
+    .timeline::before{content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:color-mix(in srgb, var(--text) 14%, transparent)}
+    .tl-item{position:relative;padding-left:2.4rem}
+    .tl-item::before{content:"";position:absolute;left:2px;top:.35rem;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 0 0 3px color-mix(in srgb, var(--text) 8%, transparent)}
+    .tl-item h4{margin:.1rem 0}
+    .tl-item .when{color:var(--muted);font-size:.95rem}
+
+    /* Contact */
+    form{display:grid;gap:.8rem}
+    .field{display:grid;gap:.35rem}
+    label{font-size:.95rem;color:var(--muted)}
+    input,textarea{padding:.85rem 1rem;border-radius:12px;border:1px solid color-mix(in srgb, var(--text) 16%, transparent);background:var(--card);color:var(--text);outline:none}
+    input:focus,textarea:focus{box-shadow:var(--ring);border-color:color-mix(in srgb, var(--brand) 40%, transparent)}
+
+    /* Footer */
+    footer{padding:2.2rem 0;color:var(--muted)}
+
+    /* Utilities */
+    .hidden{display:none!important}
+    .center{display:grid;place-items:center}
+    .pill{border-radius:999px}
+
+    /* Responsive */
+    @media (max-width: 960px){
+      .hero{grid-template-columns:1fr;gap:1.5rem}
+      .grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media (max-width: 640px){
+      .links{display:none}
+      .grid-3,.grid-4{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- ====== NAV ====== -->
+  <header>
+    <div class="wrap nav">
+      <a href="#home" class="logo">MAI<span style="color:var(--brand)">.DEV</span></a>
+      <nav class="links" aria-label="Main Navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+        <button id="themeBtn" class="btn ghost" aria-label="Toggle theme">🌓</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ====== HERO ====== -->
+  <main id="home" class="wrap hero">
+    <div>
+      <span class="badge">👋 สวัสดีครับ ผมชื่อ ไม้ | นักศึกษาที่ชอบทำเว็บ</span>
+      <h1 class="title">สร้างเว็บให้เรียบ สวย และโหลดไว — ด้วย HTML, CSS, JS</h1>
+      <p class="subtitle">นี่คือเทมเพลต Portfolio แบบ Single‑File สำหรับฝึกทำตาม ปรับชื่อ สี เนื้อหา และโปรเจ็กต์ของคุณ แล้วอัปขึ้น GitHub Pages ได้ทันที</p>
+      <div class="cta">
+        <a class="btn" href="#projects">ดูโปรเจ็กต์</a>
+        <a class="btn ghost" href="#contact">ติดต่อผม</a>
+      </div>
+      <div class="socials">
+        <a class="tag" href="#" aria-label="GitHub">🐱 GitHub</a>
+        <a class="tag" href="#" aria-label="LinkedIn">💼 LinkedIn</a>
+        <a class="tag" href="#" aria-label="Email">✉️ Email</a>
+      </div>
+    </div>
+    <div class="card avatar" aria-hidden="true">👨‍💻</div>
+  </main>
+
+  <!-- ====== ABOUT ====== -->
+  <section id="about">
+    <div class="wrap about grid grid-2">
+      <div class="card" style="padding:1.2rem">
+        <h2>เกี่ยวกับผม</h2>
+        <p>ผมเป็นนักศึกษาที่สนใจงาน Full‑Stack (ชอบฝั่ง Frontend เป็นพิเศษ) โค้ดที่ชอบ: HTML, CSS, JavaScript และ Laravel. ตอนนี้กำลังทำโปรเจ็กต์ตู้เย็นอัจฉริยะและเว็บแอปเพื่อฝึกจริง</p>
+        <ul class="list">
+          <li>🎯 โฟกัส: เว็บเร็ว ใช้งานง่าย เขียนเองเข้าใจเอง</li>
+          <li>📚 กำลังฝึก: การออกแบบ UI ให้ดูแพง และเขียนโค้ดอ่านง่าย</li>
+          <li>🛠️ เครื่องมือ: VS Code, Git, GitHub, Figma</li>
+        </ul>
+      </div>
+      <div class="grid grid-2">
+        <div class="card center" style="aspect-ratio:1/1">รูปโปรไฟล์/โลโก้</div>
+        <div class="card center" style="aspect-ratio:1/1">ใบเซอร์/ผลงานเด่น</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== SKILLS ====== -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Skills</h2>
+        <div class="tags">
+          <button class="tag pill filter active" data-filter="all">ทั้งหมด</button>
+          <button class="tag pill filter" data-filter="frontend">Frontend</button>
+          <button class="tag pill filter" data-filter="backend">Backend</button>
+          <button class="tag pill filter" data-filter="tools">Tools</button>
+        </div>
+      </div>
+      <div class="grid grid-4" id="skillGrid">
+        <div class="card skill" data-group="frontend" style="padding:1rem">HTML / CSS (Flex, Grid)</div>
+        <div class="card skill" data-group="frontend" style="padding:1rem">JavaScript (ES6+)</div>
+        <div class="card skill" data-group="frontend" style="padding:1rem">Responsive / A11y</div>
+        <div class="card skill" data-group="backend" style="padding:1rem">Laravel (พื้นฐาน)</div>
+        <div class="card skill" data-group="backend" style="padding:1rem">REST API</div>
+        <div class="card skill" data-group="tools" style="padding:1rem">Git & GitHub</div>
+        <div class="card skill" data-group="tools" style="padding:1rem">Figma</div>
+        <div class="card skill" data-group="tools" style="padding:1rem">Linux / CLI</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PROJECTS ====== -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Projects</h2>
+        <p class="subtitle">ใส่โปรเจ็กต์ 4–6 ชิ้นที่ดีที่สุดของคุณ พร้อมลิงก์ Live และโค้ด</p>
+      </div>
+      <div class="grid grid-3">
+        <!-- Project Card -->
+        <article class="card project" aria-label="Project 1">
+          <div class="thumb"></div>
+          <div class="body">
+            <h3>Smart Fridge (Raspberry Pi + YOLOv5)</h3>
+            <p>ระบบตรวจจับวัตถุดิบในตู้เย็น ส่งรูปและระดับน้ำไป LINE Bot</p>
+            <div class="tags" aria-label="Tech stack">
+              <span class="tag">Python</span>
+              <span class="tag">Flask</span>
+              <span class="tag">MLX90640</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="#">Live</a>
+              <a class="btn ghost" href="#">Code</a>
+            </div>
+          </div>
+        </article>
+        <article class="card project" aria-label="Project 2">
+          <div class="thumb"></div>
+          <div class="body">
+            <h3>e‑Docify (Laravel)</h3>
+            <p>เว็บแอปด้านเอกสารการเงิน พร้อมแดชบอร์ดและสิทธิ์ผู้ใช้</p>
+            <div class="tags">
+              <span class="tag">Laravel</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Blade</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="#">Live</a>
+              <a class="btn ghost" href="#">Code</a>
+            </div>
+          </div>
+        </article>
+        <article class="card project" aria-label="Project 3">
+          <div class="thumb"></div>
+          <div class="body">
+            <h3>Portfolio V1 (Vanilla)</h3>
+            <p>พอร์ตโฟลิโอเวอร์ชันแรก ใช้ HTML/CSS/JS ล้วน</p>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JS</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="#">Live</a>
+              <a class="btn ghost" href="#">Code</a>
+            </div>
+          </div>
+        </article>
+        <article class="card project" aria-label="Project 4">
+          <div class="thumb"></div>
+          <div class="body">
+            <h3>LINE Bot Notifier</h3>
+            <p>บอทแจ้งเตือนสถานะจาก Raspberry Pi ผ่าน Messaging API</p>
+            <div class="tags">
+              <span class="tag">Node/Python</span>
+              <span class="tag">LINE API</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="#">Live</a>
+              <a class="btn ghost" href="#">Code</a>
+            </div>
+          </div>
+        </article>
+        <article class="card project" aria-label="Project 5">
+          <div class="thumb"></div>
+          <div class="body">
+            <h3>Egg Counter (ESP32)</h3>
+            <p>อ่านค่าเซ็นเซอร์ไข่ 8 จุด ส่งจำนวนไปยัง Flask บน Pi</p>
+            <div class="tags">
+              <span class="tag">ESP32</span>
+              <span class="tag">HTTP</span>
+              <span class="tag">Flask</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="#">Live</a>
+              <a class="btn ghost" href="#">Code</a>
+            </div>
+          </div>
+        </article>
+        <article class="card project" aria-label="Project 6">
+          <div class="thumb"></div>
+          <div class="body">
+            <h3>UI Components Pack</h3>
+            <p>ชุดคอมโพเนนต์ UI เล็ก ๆ เช่น ปุ่ม การ์ด โมดอล</p>
+            <div class="tags">
+              <span class="tag">CSS</span>
+              <span class="tag">JS</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="#">Live</a>
+              <a class="btn ghost" href="#">Code</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== EXPERIENCE ====== -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Experience</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-item card" style="padding:1rem">
+          <div class="when">2025 — ปัจจุบัน</div>
+          <h4>Student Developer • Self‑Driven Projects</h4>
+          <p class="subtitle">ทำโปรเจ็กต์ IoT/เว็บแอปจริง เรียนรู้จากปัญหาและการลงมือทำ</p>
+        </div>
+        <div class="tl-item card" style="padding:1rem">
+          <div class="when">2024 — 2025</div>
+          <h4>Intern • Hyphen Plus Co., Ltd.</h4>
+          <p class="subtitle">ช่วยพัฒนาระบบเว็บภายใน ปรับปรุง UI และรายงานผลการทดสอบ</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CONTACT ====== -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Contact</h2>
+        <p class="subtitle">ใช้ฟอร์มนี้เป็นตัวอย่าง (ยังไม่ส่งจริง) หรือใส่ลิงก์อีเมล/โซเชียลของคุณเอง</p>
+      </div>
+      <form onsubmit="event.preventDefault(); alert('เดโม: ฟอร์มนี้ยังไม่เชื่อมต่อแบ็กเอนด์');">
+        <div class="field">
+          <label for="name">ชื่อ</label>
+          <input id="name" name="name" placeholder="ชื่อของคุณ" required>
+        </div>
+        <div class="field">
+          <label for="email">อีเมล</label>
+          <input id="email" name="email" type="email" placeholder="you@mail.com" required>
+        </div>
+        <div class="field">
+          <label for="msg">ข้อความ</label>
+          <textarea id="msg" name="message" rows="5" placeholder="สวัสดี 👋"></textarea>
+        </div>
+        <button class="btn" type="submit">ส่งข้อความ</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+      <small>© <span id="y"></span> Mai Dev. All rights reserved.</small>
+      <div class="tags">
+        <a class="tag" href="#home">กลับด้านบน ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ==== Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // ==== Theme toggle with localStorage
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('themeBtn');
+    const stored = localStorage.getItem('theme');
+    if(stored === 'light') root.classList.add('light');
+    if(stored === 'dark') root.classList.remove('light');
+    themeBtn?.addEventListener('click', ()=>{
+      root.classList.toggle('light');
+      localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
+    });
+
+    // ==== Skills filter (simple demo)
+    const filters = document.querySelectorAll('.filter');
+    const skills = document.querySelectorAll('.skill');
+    filters.forEach(btn => btn.addEventListener('click', ()=>{
+      filters.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const g = btn.dataset.filter;
+      skills.forEach(s => {
+        s.parentElement.classList.remove('hidden');
+        if(g !== 'all' && s.dataset.group !== g){
+          s.parentElement.classList.add('hidden');
+        }
+      });
+    }));
+
+    // ==== Active link by scroll (basic)
+    const sections = ['about','skills','projects','experience','contact'];
+    const opts = {root:null, rootMargin:'-40% 0px -55% 0px', threshold:0};
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        const id = entry.target.id;
+        const link = document.querySelector(`.links a[href="#${id}"]`);
+        if(link){ link.style.opacity = entry.isIntersecting ? '1' : '.85'; }
+      })
+    }, opts);
+    sections.forEach(id=>{ const el = document.getElementById(id); if(el) observer.observe(el); });
+  </script>
+</body>
+</html>

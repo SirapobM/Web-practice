@@ -4,113 +4,41 @@
   box-sizing: border-box;
 }
 
+/* ==== สี ==== */
 :root {
-  --nav-background: #3971b8;
-  --nav-font: white;
-  --main-background: #fbfcee
+  --nav-text: #0f172a;
+  --brand: #14b8a6;
 }
 
-.rubik-font {
-  font-family: "Rubik", sans-se rif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+.wrap {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding: 0 1.25rem;
 }
 
-/* ---------------- Start Nav ---------------- */
-nav {
-  background-color: var(--nav-background);
-}
-
-.container {
-  margin: 0 auto;
-  height: 50px;
+.nav {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  max-width: 1170px;
+  padding: 1rem 0;
 }
 
-.menuIcon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  height: 100%; /* ให้สูงเท่า container */
-
-  @media only screen and (min-width: 480px) {
-    display: none;
-  }
-}
-
-.bar1,
-.bar2,
-.bar3 {
-  width: 20px;
-  height: 3px;
-  background-color: var(--nav-font);
-  margin: 2px 0;
-  transition: 0.4s;
-}
-
-.change .bar1 {
-  transform: translate(0, 5px) rotate(-45deg);
-}
-
-.change .bar2 {
-  opacity: 0;
-}
-
-.change .bar3 {
-  transform: translate(0, -8px) rotate(45deg);
-}
-
-.menu,
-.logo {
-  display: flex;
-  gap: 24px;
-  list-style: none;
-  align-items: center;
-  height: 100%;
-}
-
-.logo {
-  color: var(--nav-font);
-  font-size: 15px;
-}
-
-.menu li a {
-  color: var(--nav-font);
+/* ===== Nav logo ===== */
+.nav a.logo {
   text-decoration: none;
-  font-size: 15px;
+  font-weight:  800;
+  letter-spacing: .3px;
+  color: var(--nav-text);
 }
 
-/* ---------------- End Nav ---------------- */
-.container-main{
-  background-color: var(--main-background);
-}
-
-.profile {
-  height: 300px;
-  width: 100%;
+/* ===== Nav Menu ===== */
+.menu {
   display: flex;
-  gap: 2rem;
-  padding-left: 35%
-
+  list-style: none;
+  gap: 40px;
 }
 
-.profile img{
-  height: 100%;
-  padding: 10px;
-}
-
-
-
-
-/* ---------------- Media ---------------- */
-@media only screen and (max-width: 480px) {
-  .menu {
-    display: none;
-  }
+.menu a {
+  text-decoration: none;
 }
 
