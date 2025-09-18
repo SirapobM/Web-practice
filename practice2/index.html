@@ -1,11 +1,49 @@
+<!-- เป้าหมาย: สร้างหน้าเว็บที่มี “การ์ดโปรไฟล์” อยู่ตรงกลาง
+สิ่งที่ต้องมี:
+
+พื้นหลังสีอ่อน ๆ ให้เว็บ
+กล่อง (การ์ด) อยู่ตรงกลางจอ มีเงาเล็ก ๆ
+ใส่ รูปโปรไฟล์วงกลม ด้านบน
+ใส่ ชื่อใหญ่ ๆ + ตำแหน่ง ใต้รูป
+ปุ่ม 2 อัน (เช่น “Contact Me”, “My Projects”) ที่ hover แล้วเปลี่ยนสี
+ใส่ไอคอนโซเชียล (Facebook, GitHub) เป็นลิงก์ -->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+    <!-- card -->
+    <section id="card">
+
+        <!-- Profile -->
+        <div class='profile'>
+            <img class="img-resize" src="Tako.jpg" alt="รูปโปรไฟล์วงกลม">
+        </div>
+        
+        <!-- Text -->
+        <div class="text">
+            <h2>ทาโกะ แมวจอมซน</h2>
+        </div>
+
+        <!-- Button -->
+        <div class="button btn">
+            <button class="contact">Contact Me</button>
+            <button class="projects">My Projects</button>
+        </div>
+
+        <!-- Icon -->
+        <div class="icon">
+            <a href="facebook"><img src="facebook.png" alt="รูป Facebook"></a>
+            <a href="img-resize"><img src="github.png" alt="รูป GitHub"></a>
+        </div>
+    </section>
 </body>
+
 </html>

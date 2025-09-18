@@ -1,0 +1,93 @@
+:root {
+    --background-body : #F7F5FF;
+    --background-card : #EEECF4;
+}
+
+body {
+    background-color: var(--background-body);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#card {
+    background-color: var(--background-card);
+    width: 300px;
+    padding: 1rem;
+    border-radius: 12px;
+} 
+
+/* ปรับรูป*/
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-resize {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+    margin-top: 1rem;
+}
+
+/* ปรับไอค่อน */
+.icon a img {
+    width: 100%;
+    height: 100%;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}
+
+.icon a {
+    width: 50px;
+    height: 50px;
+    padding: 1rem;
+}
+
+/* ปุ่ม */
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+button {
+  padding: 12.5px 30px;
+  border: 0;
+  border-radius: 100px;
+  background-color: #2ba8fb;
+  color: #ffffff;
+  font-weight: Bold;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+
+button:hover {
+  background-color: #6fc5ff;
+  box-shadow: 0 0 20px #6fc5ff50;
+  transform: scale(1.1);
+}
+
+button:active {
+  background-color: #3d94cf;
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  box-shadow: none;
+  transform: scale(0.98);
+}
+
+/* ชื่อ */
+h2 {
+    text-align: center;
+}
+
