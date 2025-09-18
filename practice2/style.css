@@ -1,6 +1,6 @@
 :root {
     --background-body : #F7F5FF;
-    --background-card : #EEECF4;
+    --background-card : white;
 }
 
 body {
@@ -10,13 +10,15 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    font-family: "Prompt", sans-serif;
 }
 
 #card {
     background-color: var(--background-card);
-    width: 300px;
+    width: 350px;
     padding: 1rem;
     border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 } 
 
 /* ปรับรูป*/
@@ -29,8 +31,8 @@ body {
 .img-resize {
     border-radius: 50%;
     object-fit: cover;
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     margin-top: 1rem;
 }
 
@@ -48,9 +50,9 @@ body {
 }
 
 .icon a {
-    width: 50px;
-    height: 50px;
-    padding: 1rem;
+    width: 30px;
+    height: 30px;
+    padding: 0 0.5rem;
 }
 
 /* ปุ่ม */
@@ -62,32 +64,27 @@ body {
 }
 
 button {
-  padding: 12.5px 30px;
-  border: 0;
-  border-radius: 100px;
-  background-color: #2ba8fb;
-  color: #ffffff;
-  font-weight: Bold;
-  transition: all 0.5s;
-  -webkit-transition: all 0.5s;
+    border-radius: 5px;
+    border-width: 1px;
+    padding: 0.5rem;
+    background-color: white;
 }
 
-button:hover {
-  background-color: #6fc5ff;
-  box-shadow: 0 0 20px #6fc5ff50;
-  transform: scale(1.1);
-}
-
-button:active {
-  background-color: #3d94cf;
-  transition: all 0.25s;
-  -webkit-transition: all 0.25s;
-  box-shadow: none;
-  transform: scale(0.98);
+.button :hover {
+    color: aqua;
 }
 
 /* ชื่อ */
 h2 {
+    font-family: "Cabin", sans-serif;
     text-align: center;
+    margin-bottom: 0;
+}
+
+.text p {
+    font-family: "Cabin", sans-serif;
+    margin: 0 0 1rem;
+    text-align: center;
+    color: #666666;
 }
 
