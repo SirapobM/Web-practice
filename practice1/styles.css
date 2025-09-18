@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ==== สี ==== */
+:root {
+  --nav-text: white;
+  --brand: #14b8a6;
+}
+
+.wrap {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding: 0 1.25rem;
+}
+
+header {
+  background-color: #333;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+/* ===== Nav logo ===== */
+.nav a.logo {
+  text-decoration: none;
+  font-weight:  800;
+  letter-spacing: .3px;
+  color: var(--nav-text);
+}
+
+/* ===== Nav Menu ===== */
+.menu {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--nav-text);
+}
+
+/* ===== Main ===== */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+h2 {
+  border-bottom: 2px solid #333;
+  padding-bottom: 0.5rem;
+}
+
+.project {
+  background-color: #f4f4f4;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+/* ===== Footer ===== */
+footer {
+  display: flex;
+  justify-content: center;
+  background-color: #333;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  color: var(--nav-text);
+}
