@@ -1,0 +1,27 @@
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* เริ่มต้น: 4 คอลัมน์ */
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.feature {
+  background: #f4f4f4;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 8px;
+}
+
+/* ถ้าหน้าจอเล็กกว่า 900px → แสดง 2 คอลัมน์ */
+@media (max-width: 900px) {
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ถ้าหน้าจอเล็กกว่า 600px → แสดง 1 คอลัมน์ */
+@media (max-width: 600px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
+}

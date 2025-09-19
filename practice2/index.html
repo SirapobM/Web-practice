@@ -1,55 +1,66 @@
-<!-- เป้าหมาย: สร้างหน้าเว็บที่มี “การ์ดโปรไฟล์” อยู่ตรงกลาง
-สิ่งที่ต้องมี:
-
-พื้นหลังสีอ่อน ๆ ให้เว็บ
-กล่อง (การ์ด) อยู่ตรงกลางจอ มีเงาเล็ก ๆ
-ใส่ รูปโปรไฟล์วงกลม ด้านบน
-ใส่ ชื่อใหญ่ ๆ + ตำแหน่ง ใต้รูป
-ปุ่ม 2 อัน (เช่น “Contact Me”, “My Projects”) ที่ hover แล้วเปลี่ยนสี
-ใส่ไอคอนโซเชียล (Facebook, GitHub) เป็นลิงก์ -->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
         rel="stylesheet">
+    <script src="script.js"></script>
+
+    <title>My Portfolio</title>
 </head>
 
 <body>
-    <!-- card -->
-    <section id="card">
+    <!-- ===== NAV ====== -->
+    <header>
+        <div class="wrap nav">
+            <a href="#home" class="logo">Mai<span style="color:var(--brand)">.DEV</span>
+            </a>
 
-        <!-- Profile -->
-        <div class='profile'>
-            <img class="img-resize" src="Tako.jpg" alt="รูปโปรไฟล์วงกลม">
+            <ul class="menu">
+                <li><a href="#About" class="nav-link">About</a></li>
+                <li><a href="#Skills">Skills</a></li>
+                <li><a href="#Projects" class="nav-link">Projects</a></li>
+                <li><a href="#Experience">Experience</a></li>
+                <li><a href="#Contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section id="About">
+        <h2>เกี่ยวกับผม</h2>
+        <p>สวัสดีครับ ผมชื่อไม้ กำลังฝึกเขียนเว็บ นี่เป็นเว็บแรกที่ลองเขียน</p>
+    </section>
+
+    <!-- Projects -->
+    <section id="Projects">
+        <h2>โปรเจกต์</h2>
+        <div class="project">
+            <h4>โปรเจกต์ตู้เย็นอัจฉริยะ</h4>
+            <p>ใช้กล้องถ่ายภาพในตู้เย็นแล้วนำไปประมวลผลภาพ ส่งออกส่ไลน์บอท</p>
         </div>
 
-        <!-- Text -->
-        <div class="text">
-            <h2>ทาโกะ</h2>
-            <p>แมวจอมซน</p>
-        </div>
-
-        <!-- Button -->
-        <div class="button btn">
-            <button class="contact">Contact Me</button>
-            <button class="projects">My Projects</button>
-        </div>
-
-        <!-- Icon -->
-        <div class="icon">
-            <a href="facebook"><img src="facebook.png" alt="รูป Facebook"></a>
-            <a href="img-resize"><img src="github.png" alt="รูป GitHub"></a>
+        <div class="project">
+            <h4>เว็บไซส์ Portfolio</h4>
+            <p>เอาไว้ฝึก</p>
         </div>
     </section>
+
+    <!-- Contact -->
+     <section id="Contact">
+        <h2>ติดต่อ</h2>
+        <p>Email: MaiMMM2546@gmailcom</p>
+        <p>Github: github.com/SirapobM</p>
+     </section>
+
+     <footer>
+        <p>2025 Portfolio ไม้</p>
+     </footer>
 </body>
 
 </html>

@@ -1,0 +1,25 @@
+.boxs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.box {
+    background-color: bisque;
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+@media (max-width: 900px){
+    .boxs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px){
+    .boxs {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

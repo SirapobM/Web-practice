@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.hero {
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    color: white;   
+}
+
+.hero p {
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+}
+
+/* ปุ่ม */
+.hero a {
+    margin-top: 0.5rem;
+    background-color: white;
+    padding: 0.9rem 1.5rem;
+    border-radius: 12px;
+    color: black;
+    text-decoration: none;
+}
+
+.hero a:hover {
+    background-color: #dedede;
+}
+
+/* box 3 อัน */
+.con {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.box {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
