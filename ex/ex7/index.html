@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Navbar Advance</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a href="#" class="logo">MAI<span>.DEV</span></a>
+
+    <!-- ปุ่ม Hamburger -->
+    <button id="menuBtn" class="menu-btn" aria-label="เปิดเมนู" aria-expanded="false" aria-controls="siteNav">
+      ☰
+    </button>
+
+    <!-- เมนูหลัก -->
+    <nav id="siteNav" class="nav">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <!-- ฉากมืดเวลาเมนูเปิด (มือถือ) -->
+    <div id="overlay" class="overlay" hidden></div>
+  </header>
+
+  <main>
+    <section id="about" class="section">About</section>
+    <section id="projects" class="section">Projects</section>
+    <section id="contact" class="section">Contact</section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

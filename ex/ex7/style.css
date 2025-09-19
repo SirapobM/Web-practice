@@ -1,0 +1,54 @@
+/* ===== Base ===== */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: system-ui, Arial, sans-serif; color: #0f172a; }
+
+.section { height: 80vh; display: grid; place-items: center; font-size: 2rem; }
+
+/* ===== Header ===== */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .8rem 1rem; background: #111827; color: #fff;
+}
+.logo { color: #fff; text-decoration: none; font-weight: 800; letter-spacing:.3px; }
+.logo span { color: #22d3ee; }
+
+.menu-btn {
+  display: none; /* โชว์เฉพาะมือถือ */
+  font-size: 1.5rem; background: transparent; color: #fff; border: 0; cursor: pointer;
+}
+
+/* ===== Nav (Desktop) ===== */
+.nav { display: flex; gap: 1rem; }
+.nav-link { color: #e5e7eb; text-decoration: none; padding: .4rem .7rem; border-radius: 8px; }
+.nav-link:hover { background: rgba(255,255,255,.08); }
+
+/* ===== Overlay (มือถือใช้) ===== */
+.overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.45);
+}
+
+/* ===== Mobile Layout ===== */
+@media (max-width: 768px) {
+  .menu-btn { display: inline-block; }
+
+  /* ซ่อนเมนูจากหน้าจอ แล้วทำเป็นแผงเลื่อน (drawer) ด้านขวา */
+  .nav {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 78%;
+    max-width: 320px;
+    background: #111827; border-left: 1px solid rgba(255,255,255,.12);
+    display: flex; flex-direction: column; gap: .5rem;
+    padding: 1rem;
+    transform: translateX(100%); /* ซ่อนอยู่ขวา */
+    transition: transform .25s ease;
+  }
+
+  /* สถานะเปิดเมนู: เพิ่มคลาส .open จาก JS */
+  .nav.open { transform: translateX(0); }
+
+  .nav-link { padding: .9rem 1rem; border-radius: 10px; font-size: 1.05rem; }
+  .nav-link + .nav-link { border-top: 1px solid rgba(255,255,255,.06); }
+
+  /* overlay โชว์ตอนเปิดเท่านั้น (JS จะ toggle hidden) */
+}
