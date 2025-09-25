@@ -1,6 +1,7 @@
-document.writeln("<h1>Mai asdasd</h1>");
+let money = 100;
+let price = 500;
+let name = "Mai"
 
-let name = "mai", age = 20;
-
-document.writeln(age);
-console.log("อายุ", age)
+console.log(typeof(price))
+console.log(name)
+console.log(money)
