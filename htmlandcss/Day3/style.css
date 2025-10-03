@@ -1,0 +1,14 @@
+.card {
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid black;
+    display: inline-block;
+}
+
+.card:hover {
+    background-color: blanchedalmond;
+}
+
+.btn:hover {
+    background-color: rgb(15, 245, 19);
+}
