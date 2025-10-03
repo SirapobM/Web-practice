@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form action="api/contact" method="post">
+        <section class="contact">
+            <div>
+                <label for="name">ชื่อ</label>
+                <input type="text" id="name" placeholder="กรุณาระบุชื่อ">
+            </div>
+
+            <div>
+                <label for="email">อีเมล</label>
+                <input type="email" id="email" placeholder="กรุณาระบุอีเมล">
+            </div>
+        </section>
+
+        <section>
+            <br>
+            <div>
+                <table>
+                    <caption>ตารางแสดงข้อมูลสมาชิก</caption>
+                    <thead>
+                        <tr>
+                            <th rowspan="2">ชื่อ-สกุล</th>
+                            <th colspan="2">ที่อยู่</th>
+                            <th rowspan="2">เบอร์โทรศัพท์</th>
+                        </tr>
+                        <tr>
+                            <th>จังหวัด</th>
+                            <th>อำเภอ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>นายสมชาย</td>
+                            <td>กรุงเทพฯ</td>
+                            <td>บางเขน</td>
+                            <td>081-1234567</td>
+                        </tr>
+                        <tr>
+                            <td>นางสาวสมพร</td>
+                            <td>เชียงใหม่</td>
+                            <td>สันทราย</td>
+                            <td>061-1234567</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">รวม 2 คน</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+
+        <button type="submit">Enter</button>
+    </form>
+</body>
+
+</html>
