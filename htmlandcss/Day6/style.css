@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Itim', cursive;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+:root {
+    --hero-banner: #ffddd1;
+    --purple: #d8ddff;
+}
+
+.hero {
+    background-color: var(--hero-banner);
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    padding: 80px 20px;
+    color: white;
+    font-size: 20px;
+}
+
+.hero h1 {
+    font-size: 50px;
+}
+
+.hero > *:not(:last-child) {
+    padding: 0.8rem;
+}
+
+.hero h1 {
+    color: white;
+}
+
+.hero .btn {
+    margin-top: 1rem;
+    padding: 12px 25px;
+    border-radius: 25px;
+    transition: transform 0.2s;
+    border: none;
+    font-family: 'Itim', cursive;
+    color: rgb(228, 144, 158);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.hero .btn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: rgb(255, 196, 228);
+    color: white;
+}
+
+.products {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 40px 20px;
+} 
+
+.item {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px;
+    width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+
+h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+.btn {
+    background: #fff;
+    color: var(--pink);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.footer {
+    background-color: var(--purple);
+    text-align: center;
+    padding: 20px;
+    font-family: 'Comfortaa', cursive;
+    color: rgb(120, 120, 120);
+}
+
+.item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    
+}
